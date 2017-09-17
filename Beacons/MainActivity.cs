@@ -12,10 +12,11 @@ using System.Collections.Generic;
 using Android.Support.V4.App;
 using Android.Content;
 using Android.Bluetooth;
+using Android.Content.PM;
 
 namespace Beacons
 {
-    [Activity(Label = "Beacons", MainLauncher = true)]
+    [Activity(Label = "Beacons", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait) ]
     public class MainActivity : Activity, IBeaconConsumer
     {
         private const string UUID = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
