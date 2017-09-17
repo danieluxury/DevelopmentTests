@@ -33,7 +33,6 @@ namespace Beacons
         TextView _text;
         TextView _info;
 
-        int _previousProximity;
 
         public MainActivity()
         {
@@ -112,47 +111,53 @@ namespace Beacons
         {
             if (e.Beacons.Count > 0)
             {
-                var beacon = e.Beacons.FirstOrDefault();
-                Log.Error(TAG, "App {0}", e.ToString());
-                IBeacon a = e.Beacons.First();
-                IBeacon b = e.Beacons.Last();
+                IBeacon currentBeacon = null;
                 ICollection<IBeacon> collection;
-                //= e.Beacons.CopyTo();
-                List<IBeacon> lista = new List<IBeacon>();
-                //lista.Add(e.Beacons.First());
-                lista = e.Beacons.ToList();
-                var infoMessage = string.Empty; 
-                for (int i = 0; i < lista.Count; i++)
+                var infoMessage = string.Empty;
+                List<IBeacon> listaZero = new List<IBeacon>();
+                listaZero = e.Beacons.ToList();
+                Log.Error(TAG, "Lista recibida");
+                for (int i = 0; i < listaZero.Count; i++)
                 {
-                    Log.Error(TAG, "App {0}", lista[i].Major);
-                    if ((ProximityType)lista[i].Proximity == ProximityType.Immediate)
-                    {
-                        infoMessage = lista[i].Major.ToString();
-                        UpdateDisplay("You found the monkey!", Color.Green, infoMessage);
-                    }
+                    infoMessage = mUtilities.compareBeacon(listaZero[i].Major, listaZero[i].Minor);
+                    Log.Error(TAG, "i{0} Color{1} Ma{2} Mi{3} Prox{4} Accur{5} Rssi{6}", i, infoMessage, listaZero[i].Major, listaZero[i].Minor, listaZero[i].Proximity, listaZero[i].Accuracy, listaZero[i].Rssi);
                 }
 
-                Log.Error(TAG, "App {0} {1}", a.Rssi, b.Rssi);
-                
-                var message = string.Empty;
-                
-     //           switch ((ProximityType)beacon.Proximity)
-     //           {
-     //               case ProximityType.Immediate:
-     //                   UpdateDisplay("You found the monkey!", Color.Green, infoMessage);
-     //                   break;
-     //               /*case ProximityType.Near:
-					//	UpdateDisplay("You're getting warmer", Color.Yellow, infoMessage);
-					//	break;
-					//case ProximityType.Far:
-					//	UpdateDisplay("You're freezing cold", Color.Blue, infoMessage);
-					//	break;*/
-     //               case ProximityType.Unknown:
-     //                   UpdateDisplay("I'm not sure how close you are to the monkey", Color.Red, infoMessage);
-     //                   break;
-     //           }
+                List<IBeacon> lista = listaZero.OrderBy(IBeacon => IBeacon.Accuracy).ThenBy(IBeacon => IBeacon.Proximity).ToList();
 
-                _previousProximity = beacon.Proximity;
+
+                Log.Error(TAG, "Lista ordenada");
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    infoMessage = mUtilities.compareBeacon(lista[i].Major, lista[i].Minor);
+                    Log.Error(TAG, "i{0} Color{1} Ma{2} Mi{3} Prox{4} Accur{5} Rssi{6}",i, infoMessage, lista[i].Major, lista[i].Minor, lista[i].Proximity, lista[i].Accuracy, lista[i].Rssi);
+                    //Log.Error(TAG, "App JniIdentityHashCode {0} JniPeerMembers{1} ProximityUuid{2}", lista[i].JniIdentityHashCode, lista[i].JniPeerMembers, lista[i].ProximityUuid);
+                    if ((ProximityType)lista[i].Proximity == ProximityType.Immediate)
+                    {
+                        currentBeacon = lista[i];    
+                        UpdateDisplay("Beacon detectado!", Color.Green, infoMessage);
+                        break;
+                    }
+                    UpdateDisplay("Beacon detectado!", Color.Green, "No Beacon near");
+                }
+
+
+                //           switch ((ProximityType)beacon.Proximity)
+                //           {
+                //               case ProximityType.Immediate:
+                //                   UpdateDisplay("You found the monkey!", Color.Green, infoMessage);
+                //                   break;
+                //               /*case ProximityType.Near:
+                //	UpdateDisplay("You're getting warmer", Color.Yellow, infoMessage);
+                //	break;
+                //case ProximityType.Far:
+                //	UpdateDisplay("You're freezing cold", Color.Blue, infoMessage);
+                //	break;*/
+                //               case ProximityType.Unknown:
+                //                   UpdateDisplay("I'm not sure how close you are to the monkey", Color.Red, infoMessage);
+                //                   break;
+                //           }
+
             }
         }
 
