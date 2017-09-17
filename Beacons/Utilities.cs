@@ -67,5 +67,27 @@ namespace Beacons
             return "desconocido";
         }
 
+        public string imageAccordingBeacon (string color)
+        {
+            string ret;
+            if (color.Equals("Rosado"))
+            {
+                ret = "image1";
+            }
+            else if(color.Equals("Morado"))
+            {
+                ret = "image2";
+            }
+            else if (color.Equals("Amarillo"))
+            {
+                ret = "image3";
+            }
+            else
+            {
+                ret = "image0";
+            }
+            return ret;
+        }
+
     }
 }

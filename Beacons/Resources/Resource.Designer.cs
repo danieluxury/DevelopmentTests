@@ -45,7 +45,19 @@ namespace Beacons
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Xamarin_Icon = 2130837504;
+			public const int image0 = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int image1 = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int image2 = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int image3 = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int Xamarin_Icon = 2130837508;
 			
 			static Drawable()
 			{
@@ -62,6 +74,9 @@ namespace Beacons
 			
 			// aapt resource value: 0x7f070000
 			public const int BeaconsView = 2131165184;
+			
+			// aapt resource value: 0x7f070003
+			public const int demoImageView = 2131165187;
 			
 			// aapt resource value: 0x7f070001
 			public const int statusLabel = 2131165185;
@@ -119,6 +134,9 @@ namespace Beacons
 			
 			// aapt resource value: 0x7f050009
 			public const int app_name = 2131034121;
+			
+			// aapt resource value: 0x7f05000c
+			public const int changeImage = 2131034124;
 			
 			// aapt resource value: 0x7f050000
 			public const int error_no_bluetooth_enabled = 2131034112;

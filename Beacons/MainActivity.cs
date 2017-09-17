@@ -35,6 +35,7 @@ namespace Beacons
         Region _rangingRegion;
         TextView _text;
         TextView _info;
+        ImageView imageView;
 
 
         public MainActivity()
@@ -58,6 +59,7 @@ namespace Beacons
             _view = FindViewById<LinearLayout>(Resource.Id.BeaconsView);
             _text = FindViewById<TextView>(Resource.Id.statusLabel);
             _info = FindViewById<TextView>(Resource.Id.statusLabel2);
+            imageView = FindViewById<ImageView>(Resource.Id.demoImageView);
             _iBeaconManager.Bind(this);
 
             //_monitorNotifier.EnterRegionComplete += EnteredRegion;
@@ -189,6 +191,10 @@ namespace Beacons
                 _text.Text = message;
                 _info.Text = info;
                 Log.Error(TAG, "App UpdateDisplay {0}", info);
+                string image = mUtilities.imageAccordingBeacon(info);
+                int picture = (int)typeof(Resource.Drawable).GetField(image).GetValue(null);
+                imageView.SetImageResource(picture);
+               
                 //_view.SetBackgroundColor(color);
             });
         }
@@ -221,6 +227,7 @@ namespace Beacons
                 StartActivityForResult(enableBtIntent, mUtilities.REQUEST_ENABLE_BT);
             }
         }
+
 
 
 

@@ -4,20 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/BeaconsView">
-<TextView
-    android:id="@+id/statusLabel"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:textSize="20sp"
-    android:gravity="top"
-    android:text="There aren't any monkeys nearby zorro" />
-  <TextView
+    <TextView
+        android:id="@+id/statusLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"
+        android:gravity="top"
+        android:text="Searching for beacons" />
+    <TextView
         android:id="@+id/statusLabel2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textSize="20sp"
         android:gravity="bottom"
-        android:text=" n" />
+        android:text="" />
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/demoImageView"
+        android:src="@drawable/image0"
+        android:scaleType="fitCenter"/>
 </LinearLayout>
