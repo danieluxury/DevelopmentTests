@@ -27,8 +27,8 @@ namespace Beacons
         View _view;
         Utilities mUtilities;
         IBeaconManager _iBeaconManager;
-        IBeacon currentBeacon = new IBeacon("Fake", 0, 0);
-        IBeacon previousBeacon = new IBeacon("Fake",0,0);
+        IBeacon currentBeacon = new IBeacon("Fake Beacon", 0, 0);
+        IBeacon previousBeacon = new IBeacon("Fake Beacon",0,0);
         //MonitorNotifier _monitorNotifier;
         RangeNotifier _rangeNotifier;
         //Region _monitoringRegion;
