@@ -11,6 +11,8 @@ using Android.Views;
 using Android.Widget;
 using Android.Bluetooth;
 using RadiusNetworks.IBeaconAndroid;
+using Android.Graphics;
+using System.Net;
 
 namespace Beacons
 {
@@ -87,6 +89,21 @@ namespace Beacons
                 ret = "image0";
             }
             return ret;
+        }
+        public Bitmap GetImageBitmapFromUrl(string url)
+        {
+            Bitmap imageBitmap = null;
+
+            using (var webClient = new WebClient())
+            {
+                var imageBytes = webClient.DownloadData(url);
+                if (imageBytes != null && imageBytes.Length > 0)
+                {
+                    imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                }
+            }
+
+            return imageBitmap;
         }
 
     }

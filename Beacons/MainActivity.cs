@@ -193,7 +193,12 @@ namespace Beacons
                 Log.Error(TAG, "App UpdateDisplay {0}", info);
                 string image = mUtilities.imageAccordingBeacon(info);
                 int picture = (int)typeof(Resource.Drawable).GetField(image).GetValue(null);
-                imageView.SetImageResource(picture);
+
+                var imageBitmap = mUtilities.GetImageBitmapFromUrl("https://k61.kn3.net/taringa/7/5/9/4/0/5/8/tecnomayro/495.jpg");
+                imageView.SetImageBitmap(imageBitmap);
+
+
+                //imageView.SetImageResource(picture);
                
                 //_view.SetBackgroundColor(color);
             });
