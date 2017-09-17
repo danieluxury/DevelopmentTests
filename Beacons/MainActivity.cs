@@ -11,6 +11,7 @@ using RadiusNetworks.IBeaconAndroid;
 using System.Collections.Generic;
 using Android.Support.V4.App;
 using Android.Content;
+using Android.Bluetooth;
 
 namespace Beacons
 {
@@ -22,6 +23,7 @@ namespace Beacons
         static readonly string TAG = "FW_TEAM";
         bool _paused;
         View _view;
+        Utilities mUtilities;
         IBeaconManager _iBeaconManager;
         MonitorNotifier _monitorNotifier;
         RangeNotifier _rangeNotifier;
@@ -38,6 +40,7 @@ namespace Beacons
 
             _monitorNotifier = new MonitorNotifier();
             _rangeNotifier = new RangeNotifier();
+            mUtilities = new Utilities();
 
             _monitoringRegion = new Region(monkeyId, UUID, null, null);
             _rangingRegion = new Region(monkeyId, UUID, null, null);
@@ -58,18 +61,23 @@ namespace Beacons
             _monitorNotifier.ExitRegionComplete += ExitedRegion;
 
             _rangeNotifier.DidRangeBeaconsInRegionComplete += RangingBeaconsInRegion;
+            askToActivateBluetooth();
         }
 
         protected override void OnResume()
         {
             base.OnResume();
             _paused = false;
+            Log.Error(TAG, "App onResume bt enabled{0}", mUtilities.isBluetoothEnabled());
+            askToActivateBluetooth();
         }
 
         protected override void OnPause()
         {
             base.OnPause();
             _paused = true;
+            Log.Error(TAG, "App onPause bt enabled{0}", mUtilities.isBluetoothEnabled());
+            
         }
 
         protected override void OnDestroy()
@@ -124,6 +132,7 @@ namespace Beacons
                 }
 
                 Log.Error(TAG, "App {0} {1}", a.Rssi, b.Rssi);
+                
                 var message = string.Empty;
                 
      //           switch ((ProximityType)beacon.Proximity)
@@ -187,6 +196,17 @@ namespace Beacons
             var notificationManager = (NotificationManager)GetSystemService(NotificationService);
             notificationManager.Notify(notificationId, notification);
         }
+
+        public void askToActivateBluetooth()
+        {
+            if ( mUtilities.isBluetoothEnabled()== false)
+            {
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ActionRequestEnable);
+                StartActivityForResult(enableBtIntent, mUtilities.REQUEST_ENABLE_BT);
+            }
+        }
+
+
 
 
     }

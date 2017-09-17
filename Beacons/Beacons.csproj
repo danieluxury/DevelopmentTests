@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utilities.cs" />
     <Compile Include="MonitorNotifier.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RangeNotifier.cs" />
