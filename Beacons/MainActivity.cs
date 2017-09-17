@@ -23,12 +23,15 @@ namespace Beacons
         private const string monkeyId = "Monkey";
         static readonly string TAG = "FW_TEAM";
         bool _paused;
+        int notBeaconDetectedcount = 0;
         View _view;
         Utilities mUtilities;
         IBeaconManager _iBeaconManager;
-        MonitorNotifier _monitorNotifier;
+        IBeacon currentBeacon = new IBeacon("Fake", 0, 0);
+        IBeacon previousBeacon = new IBeacon("Fake",0,0);
+        //MonitorNotifier _monitorNotifier;
         RangeNotifier _rangeNotifier;
-        Region _monitoringRegion;
+        //Region _monitoringRegion;
         Region _rangingRegion;
         TextView _text;
         TextView _info;
@@ -38,11 +41,11 @@ namespace Beacons
         {
             _iBeaconManager = IBeaconManager.GetInstanceForApplication(this);
 
-            _monitorNotifier = new MonitorNotifier();
+            //_monitorNotifier = new MonitorNotifier();
             _rangeNotifier = new RangeNotifier();
             mUtilities = new Utilities();
 
-            _monitoringRegion = new Region(monkeyId, UUID, null, null);
+            //_monitoringRegion = new Region(monkeyId, UUID, null, null);
             _rangingRegion = new Region(monkeyId, UUID, null, null);
         }
 
@@ -57,8 +60,8 @@ namespace Beacons
             _info = FindViewById<TextView>(Resource.Id.statusLabel2);
             _iBeaconManager.Bind(this);
 
-            _monitorNotifier.EnterRegionComplete += EnteredRegion;
-            _monitorNotifier.ExitRegionComplete += ExitedRegion;
+            //_monitorNotifier.EnterRegionComplete += EnteredRegion;
+            //_monitorNotifier.ExitRegionComplete += ExitedRegion;
 
             _rangeNotifier.DidRangeBeaconsInRegionComplete += RangingBeaconsInRegion;
             askToActivateBluetooth();
@@ -76,7 +79,7 @@ namespace Beacons
         {
             base.OnPause();
             _paused = true;
-            Log.Error(TAG, "App onPause bt enabled{0}", mUtilities.isBluetoothEnabled());
+            previousBeacon = currentBeacon;
             
         }
 
@@ -84,61 +87,68 @@ namespace Beacons
         {
             base.OnDestroy();
 
-            _monitorNotifier.EnterRegionComplete -= EnteredRegion;
-            _monitorNotifier.ExitRegionComplete -= ExitedRegion;
+            //_monitorNotifier.EnterRegionComplete -= EnteredRegion;
+            //_monitorNotifier.ExitRegionComplete -= ExitedRegion;
 
             _rangeNotifier.DidRangeBeaconsInRegionComplete -= RangingBeaconsInRegion;
 
-            _iBeaconManager.StopMonitoringBeaconsInRegion(_monitoringRegion);
+            //_iBeaconManager.StopMonitoringBeaconsInRegion(_monitoringRegion);
             _iBeaconManager.StopRangingBeaconsInRegion(_rangingRegion);
             _iBeaconManager.UnBind(this);
         }
 
-        void EnteredRegion(object sender, MonitorEventArgs e)
-        {
-            if (_paused)
-            {
-                ShowNotification();
-            }
-        }
+        //void EnteredRegion(object sender, MonitorEventArgs e)
+        //{
+        //    if (_paused)
+        //    {
+        //        ShowNotification();
+        //    }
+        //}
 
-        void ExitedRegion(object sender, MonitorEventArgs e)
-        {
-            RunOnUiThread(() => Toast.MakeText(this, "No beacons visible", ToastLength.Short).Show());
-        }
+        //void ExitedRegion(object sender, MonitorEventArgs e)
+        //{
+        //    RunOnUiThread(() => Toast.MakeText(this, "No beacons visible", ToastLength.Short).Show());
+        //}
 
         void RangingBeaconsInRegion(object sender, RangeEventArgs e)
         {
             if (e.Beacons.Count > 0)
             {
-                IBeacon currentBeacon = null;
-                ICollection<IBeacon> collection;
+                
                 var infoMessage = string.Empty;
                 List<IBeacon> listaZero = new List<IBeacon>();
                 listaZero = e.Beacons.ToList();
-                Log.Error(TAG, "Lista recibida");
-                for (int i = 0; i < listaZero.Count; i++)
-                {
-                    infoMessage = mUtilities.compareBeacon(listaZero[i].Major, listaZero[i].Minor);
-                    Log.Error(TAG, "i{0} Color{1} Ma{2} Mi{3} Prox{4} Accur{5} Rssi{6}", i, infoMessage, listaZero[i].Major, listaZero[i].Minor, listaZero[i].Proximity, listaZero[i].Accuracy, listaZero[i].Rssi);
-                }
-
                 List<IBeacon> lista = listaZero.OrderBy(IBeacon => IBeacon.Accuracy).ThenBy(IBeacon => IBeacon.Proximity).ToList();
 
-
-                Log.Error(TAG, "Lista ordenada");
                 for (int i = 0; i < lista.Count; i++)
                 {
-                    infoMessage = mUtilities.compareBeacon(lista[i].Major, lista[i].Minor);
-                    Log.Error(TAG, "i{0} Color{1} Ma{2} Mi{3} Prox{4} Accur{5} Rssi{6}",i, infoMessage, lista[i].Major, lista[i].Minor, lista[i].Proximity, lista[i].Accuracy, lista[i].Rssi);
+                    
+                    //Log.Error(TAG, "i{0} Color{1} Ma{2} Mi{3} Prox{4} Accur{5} Rssi{6}",i, infoMessage, lista[i].Major, lista[i].Minor, lista[i].Proximity, lista[i].Accuracy, lista[i].Rssi);
                     //Log.Error(TAG, "App JniIdentityHashCode {0} JniPeerMembers{1} ProximityUuid{2}", lista[i].JniIdentityHashCode, lista[i].JniPeerMembers, lista[i].ProximityUuid);
                     if ((ProximityType)lista[i].Proximity == ProximityType.Immediate)
                     {
-                        currentBeacon = lista[i];    
-                        UpdateDisplay("Beacon detectado!", Color.Green, infoMessage);
-                        break;
+                        notBeaconDetectedcount = 0;
+                        currentBeacon = lista[i];
+                        infoMessage = mUtilities.compareBeacon(currentBeacon.Major, currentBeacon.Minor);
+                        if (_paused == false) {
+                            UpdateDisplay("Beacon detectado!", Color.Green, infoMessage);
+                            break;
+                        }
+                        else if ( (currentBeacon.Major != previousBeacon.Major) && (currentBeacon.Minor != previousBeacon.Minor))
+                        {
+                            ShowNotification(infoMessage);
+                            previousBeacon = currentBeacon;
+                        }
+                       
                     }
-                    UpdateDisplay("Beacon detectado!", Color.Green, "No Beacon near");
+                    if (_paused == false)
+                    {
+                        notBeaconDetectedcount++;
+                        if (notBeaconDetectedcount > 10) {
+                            UpdateDisplay("Beacon detectado!", Color.Green, "No Beacon near");
+                        }
+                    }
+                    
                 }
 
 
@@ -164,10 +174,10 @@ namespace Beacons
         #region IBeaconConsumer impl
         public void OnIBeaconServiceConnect()
         {
-            _iBeaconManager.SetMonitorNotifier(_monitorNotifier);
+            //_iBeaconManager.SetMonitorNotifier(_monitorNotifier);
             _iBeaconManager.SetRangeNotifier(_rangeNotifier);
 
-            _iBeaconManager.StartMonitoringBeaconsInRegion(_monitoringRegion);
+            //_iBeaconManager.StartMonitoringBeaconsInRegion(_monitoringRegion);
             _iBeaconManager.StartRangingBeaconsInRegion(_rangingRegion);
         }
         #endregion
@@ -183,7 +193,7 @@ namespace Beacons
             });
         }
 
-        private void ShowNotification()
+        private void ShowNotification(string color)
         {
             var resultIntent = new Intent(this, typeof(MainActivity));
             resultIntent.AddFlags(ActivityFlags.ReorderToFront);
@@ -193,7 +203,7 @@ namespace Beacons
             var builder = new NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.Xamarin_Icon)
                 .SetContentTitle(this.GetText(Resource.String.app_label))
-                .SetContentText(this.GetText(Resource.String.monkey_notification))
+                .SetContentText("Beacon " + color +" detectado!" )
                 .SetContentIntent(pendingIntent)
                 .SetAutoCancel(true);
 
