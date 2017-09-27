@@ -19,7 +19,7 @@ namespace Beacons
     class Utilities
     {
         public int REQUEST_ENABLE_BT = 1;
-        IBeacon currentBeacon = null;
+        //IBeacon currentBeacon = null;
 
         class FakeBeacon
         {

@@ -16,7 +16,7 @@ using Android.Content.PM;
 
 namespace Beacons
 {
-    [Activity(Label = "Beacons", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait) ]
+    [Activity(Label = "Beacons", ScreenOrientation = ScreenOrientation.Portrait, Theme = "@android:style/Theme.NoTitleBar") ]
     public class MainActivity : Activity, IBeaconConsumer
     {
         private const string UUID = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
