@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Beacons
 {
-    [Activity(Label = "Welcome", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", MainLauncher = true)]
     public class Welcome : Activity
     {
 
