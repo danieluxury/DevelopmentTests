@@ -75,6 +75,7 @@
     <Compile Include="RangeNotifier.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Welcome.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -82,6 +83,7 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\Welcome.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -89,7 +91,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\greenbackgroud.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Xamarin_Icon.png" />
   </ItemGroup>

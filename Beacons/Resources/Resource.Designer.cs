@@ -48,10 +48,13 @@ namespace Beacons
 			public const int Freshii_icon_original = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int image0 = 2130837505;
+			public const int greenbackgroud = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int Xamarin_Icon = 2130837506;
+			public const int image0 = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int Xamarin_Icon = 2130837507;
 			
 			static Drawable()
 			{
@@ -68,6 +71,9 @@ namespace Beacons
 			
 			// aapt resource value: 0x7f060000
 			public const int BeaconsView = 2131099648;
+			
+			// aapt resource value: 0x7f060004
+			public const int WelcomeButton = 2131099652;
 			
 			// aapt resource value: 0x7f060003
 			public const int demoImageView = 2131099651;
@@ -93,6 +99,9 @@ namespace Beacons
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Welcome = 2130903041;
 			
 			static Layout()
 			{
