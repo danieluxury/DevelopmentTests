@@ -55,7 +55,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Android-iBeacon-Service">
-      <HintPath>..\..\..\..\Downloads\Proyectos Ejemplos\xamarin-android-ibeacon-service-1.3\lib\android\Android-iBeacon-Service.dll</HintPath>
+      <HintPath>lib\Android-iBeacon-Service.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -65,7 +65,7 @@
       <HintPath>lib\Xamarin.Android.Support.v4.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Estimote.Android">
-      <HintPath>..\..\..\..\Downloads\estimotesdkandroid-0.11.0.1\lib\android\Xamarin.Estimote.Android.dll</HintPath>
+      <HintPath>lib\Xamarin.Estimote.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -89,19 +89,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\mipmap-xxhdpi\" />
-    <Folder Include="Resources\mipmap-xxxhdpi\" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Xamarin_Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Xamarin_Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Xamarin_Icon.png" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Xamarin_Icon.png" />
   </ItemGroup>
@@ -109,13 +97,7 @@
     <AndroidResource Include="Resources\drawable\image0.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\image1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\image2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\image3.png" />
+    <AndroidResource Include="Resources\drawable\Freshii_icon_original.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
