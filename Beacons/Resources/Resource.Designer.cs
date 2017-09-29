@@ -54,7 +54,10 @@ namespace Beacons
 			public const int image0 = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int Xamarin_Icon = 2130837507;
+			public const int Teriyaki_twist = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int Xamarin_Icon = 2130837508;
 			
 			static Drawable()
 			{
@@ -72,11 +75,17 @@ namespace Beacons
 			// aapt resource value: 0x7f060000
 			public const int BeaconsView = 2131099648;
 			
-			// aapt resource value: 0x7f060004
-			public const int WelcomeButton = 2131099652;
+			// aapt resource value: 0x7f060006
+			public const int WelcomeButton = 2131099654;
+			
+			// aapt resource value: 0x7f060005
+			public const int WelcomeImageView = 2131099653;
 			
 			// aapt resource value: 0x7f060003
 			public const int demoImageView = 2131099651;
+			
+			// aapt resource value: 0x7f060004
+			public const int name = 2131099652;
 			
 			// aapt resource value: 0x7f060001
 			public const int statusLabel = 2131099649;
