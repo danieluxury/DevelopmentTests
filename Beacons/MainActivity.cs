@@ -194,8 +194,8 @@ namespace Beacons
              //   string image = mUtilities.imageAccordingBeacon(info);
              //   int picture = (int)typeof(Resource.Drawable).GetField(image).GetValue(null);
 
-                var imageBitmap = mUtilities.GetImageBitmapFromUrl("https://k61.kn3.net/taringa/7/5/9/4/0/5/8/tecnomayro/495.jpg");
-                imageView.SetImageBitmap(imageBitmap);
+                //var imageBitmap = mUtilities.GetImageBitmapFromUrl("https://k61.kn3.net/taringa/7/5/9/4/0/5/8/tecnomayro/495.jpg");
+                //imageView.SetImageBitmap(imageBitmap);
 
 
                 //imageView.SetImageResource(picture);
