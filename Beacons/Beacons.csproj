@@ -84,6 +84,9 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Welcome.axml" />
+    <AndroidResource Include="Resources\layout\Menu1ScrollView.axml" />
+    <AndroidResource Include="Resources\layout\Menu2ScrollView.axml" />
+    <AndroidResource Include="Resources\layout\Menu3ScrollView.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

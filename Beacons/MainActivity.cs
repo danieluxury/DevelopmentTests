@@ -191,10 +191,21 @@ namespace Beacons
                 _text.Text = message;
                 _info.Text = info;
                 Log.Error(TAG, "App UpdateDisplay {0}", info);
-                if (info.Equals("Amarillo"))
+                switch (info)
                 {
-                    SetContentView(Resource.Layout.Welcome);
+                    case "Amarillo":
+                        SetContentView(Resource.Layout.Menu1ScrollView);
+                        break;
+                    case "Rosado":
+                        SetContentView(Resource.Layout.Menu2ScrollView);
+                        break;
+                    case "Morado":
+                        SetContentView(Resource.Layout.Menu3ScrollView);
+                        break;
+                    default:
+                        break;
                 }
+
              //   string image = mUtilities.imageAccordingBeacon(info);
              //   int picture = (int)typeof(Resource.Drawable).GetField(image).GetValue(null);
 
