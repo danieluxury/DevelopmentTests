@@ -76,7 +76,10 @@ namespace Beacons
 			public const int BeaconsView = 2131099648;
 			
 			// aapt resource value: 0x7f060004
-			public const int WelcomeButton = 2131099652;
+			public const int ImageHome = 2131099652;
+			
+			// aapt resource value: 0x7f060005
+			public const int WelcomeButton = 2131099653;
 			
 			// aapt resource value: 0x7f060003
 			public const int demoImageView = 2131099651;
