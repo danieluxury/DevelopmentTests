@@ -193,10 +193,10 @@ namespace Beacons
                 Log.Error(TAG, "App UpdateDisplay {0}", info);
                 switch (info)
                 {
-                    case "Amarillo":
+                    case "Rosado":
                         SetContentView(Resource.Layout.Menu1ScrollView);
                         break;
-                    case "Rosado":
+                    case "Amarillo":
                         SetContentView(Resource.Layout.Menu2ScrollView);
                         break;
                     case "Morado":
