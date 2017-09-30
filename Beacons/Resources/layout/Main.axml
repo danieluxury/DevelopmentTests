@@ -25,5 +25,5 @@
         android:layout_height="fill_parent"
         android:id="@+id/demoImageView"
         android:src="@drawable/image0"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter" />
 </LinearLayout>

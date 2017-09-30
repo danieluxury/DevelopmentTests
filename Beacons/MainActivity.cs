@@ -198,10 +198,10 @@ namespace Beacons
                         SetContentView(Resource.Layout.Menu1ScrollView);
                         break;
                     case "Amarillo":
-                        SetContentView(Resource.Layout.Menu2ScrollView);
+                        SetContentView(Resource.Layout.Novedades);
                         break;
                     case "Morado":
-                        SetContentView(Resource.Layout.Menu3ScrollView);
+                        //SetContentView(Resource.Layout.Menu3ScrollView);
                         break;
                     default:
                         break;
@@ -228,7 +228,7 @@ namespace Beacons
             var notificationId = Resource.String.monkey_notification;
 
             var builder = new NotificationCompat.Builder(this)
-                .SetSmallIcon(Resource.Drawable.Xamarin_Icon)
+                .SetSmallIcon(Resource.Drawable.Freshii_icon_original)
                 .SetContentTitle(this.GetText(Resource.String.app_label))
                 .SetContentText("Beacon " + color +" detectado!" )
                 .SetContentIntent(pendingIntent)
