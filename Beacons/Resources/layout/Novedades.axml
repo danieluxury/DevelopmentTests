@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greenbackgroud">
+  <TextView
+      android:id="@+id/statusLabel10"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:textSize="45sp"
+      android:textColor="#ffffff"
+      android:textStyle="bold"
+      android:text="Novedades" />
+  <TextView
+      android:id="@+id/statusLabel11"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:textSize="45sp"
+      android:textColor="#ffffff"
+      android:textStyle="bold"
+      android:text="del día" />
+  <ImageView
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:id="@+id/demoImageView"
+      android:src="@drawable/Tortillas_Verde"
+      android:scaleType="fitCenter" />
+</LinearLayout>

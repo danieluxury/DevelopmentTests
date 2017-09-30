@@ -6,37 +6,30 @@
     android:layout_weight="1"
     android:background="@drawable/greenbackgroud"
     android:id="@+id/BeaconsView">
-  <LinearLayout
-    android:orientation=    "vertical"
-    android:layout_width=    "fill_parent"
-    android:layout_height=    "fill_parent"
-    android:layout_weight=    "1">
-    
-      <ImageView
-       android:id="@+id/ImageHome"
-       android:src="@drawable/Teriyaki_twist"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:scaleType="fitXY"
-       />
-    
-  </LinearLayout>
-
-  <LinearLayout
-   android:orientation=    "vertical"
-   android:layout_width=    "fill_parent"
-   android:layout_height=    "fill_parent"
-   android:layout_weight=    "1">
-
-      <Button
-      android:id="@+id/WelcomeButton"
-      android:layout_gravity="center"
-      android:layout_width="330dp"
-      android:layout_height="wrap_content"
-      android:text="Beacons"
-       />
-
-  </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/ImageHome"
+            android:src="@drawable/Teriyaki_twist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/WelcomeButton"
+            android:layout_gravity="center"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:text="Beacons" />
+    </LinearLayout>
 <!--<TextView
         android:id="@+id/statusLabel"
         android:layout_width="match_parent"
@@ -47,7 +40,7 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:text="Freshii" />-->
-    <!--<TextView
+<!--<TextView
         android:id="@+id/statusLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,11 +49,8 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:text="Beacons" />-->
-
- 
-  <!--<Button
+<!--<Button
     android:text="Zorro"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>-->
-
 </LinearLayout>
