@@ -3,35 +3,35 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-  <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="fill_parent"
-    android:id="@+id/scrollView">
-    <LinearLayout
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:orientation="vertical">
-      <ImageView
-        android:layout_width="fill_parent"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:adjustViewBounds="true"
-        android:layout_weight="1"
-        android:scaleType="fitXY"
-        android:src="@drawable/Teriyaki_twist"/>
-      <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:adjustViewBounds="true"
-        android:layout_weight="1"
-        android:scaleType="fitXY"
-        android:src="@drawable/Teriyaki_twist"/>
-      <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:adjustViewBounds="true"
-        android:layout_weight="1"
-        android:scaleType="fitXY"
-        android:src="@drawable/Teriyaki_twist"/>
-    </LinearLayout>
-  </ScrollView>
+        android:id="@+id/scrollView">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:adjustViewBounds="true"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/Ensalada" />
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:adjustViewBounds="true"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/Salads1" />
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:adjustViewBounds="true"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/Salads2" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
