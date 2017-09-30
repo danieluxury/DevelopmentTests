@@ -132,8 +132,9 @@ namespace Beacons
                         notBeaconDetectedcount = 0;
                         currentBeacon = lista[i];
                         infoMessage = mUtilities.compareBeacon(currentBeacon.Major, currentBeacon.Minor);
-                        if (_paused == false) {
+                        if (_paused == false && (currentBeacon.Major != previousBeacon.Major) && (currentBeacon.Minor != previousBeacon.Minor)) {
                             UpdateDisplay("Beacon detectado!", Color.Green, infoMessage);
+                            previousBeacon = currentBeacon;
                             break;
                         }
                         else if ( (currentBeacon.Major != previousBeacon.Major) && (currentBeacon.Minor != previousBeacon.Minor))
