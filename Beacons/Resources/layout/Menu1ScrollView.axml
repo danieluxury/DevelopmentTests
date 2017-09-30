@@ -32,48 +32,48 @@
                 android:layout_weight="1"
                 android:scaleType="fitXY"
                 android:src="@drawable/Salads2" />
-             <ImageView
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:adjustViewBounds="true"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
                 android:src="@drawable/Bowls" />
-             <ImageView
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:adjustViewBounds="true"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@drawable/Burritos" />  
-              <ImageView
+                android:src="@drawable/Burritos" />
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:adjustViewBounds="true"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
                 android:src="@drawable/Sopas" />
-              <ImageView
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:adjustViewBounds="true"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@drawable/Frozen_yogurt" /> 
-               <ImageView
+                android:src="@drawable/Frozen_yogurt" />
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:adjustViewBounds="true"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@drawable/Jugos" /> 
-              <ImageView
+                android:src="@drawable/Jugos" />
+            <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:adjustViewBounds="true"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@drawable/Smoothies" /> 
+                android:src="@drawable/Smoothies" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

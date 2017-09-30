@@ -14,6 +14,7 @@
         <ImageView
             android:id="@+id/ImageHome"
             android:src="@drawable/Teriyaki_twist"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY" />
@@ -26,9 +27,10 @@
         <Button
             android:id="@+id/WelcomeButton"
             android:layout_gravity="center"
+            android:layout_marginTop="40dp"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:text="Beacons" />
+            android:text=" Find Beacons" />
     </LinearLayout>
 <!--<TextView
         android:id="@+id/statusLabel"

@@ -13,6 +13,7 @@ using Android.Support.V4.App;
 using Android.Content;
 using Android.Bluetooth;
 using Android.Content.PM;
+using Android.Graphics.Drawables;
 
 namespace Beacons
 {
@@ -36,7 +37,8 @@ namespace Beacons
         TextView _text;
         TextView _info;
         ImageView imageView;
-
+        AnimationDrawable freshiidrawable;
+    
 
         public MainActivity()
         {
@@ -60,6 +62,12 @@ namespace Beacons
             _text = FindViewById<TextView>(Resource.Id.statusLabel);
             _info = FindViewById<TextView>(Resource.Id.statusLabel2);
             imageView = FindViewById<ImageView>(Resource.Id.demoImageView);
+            freshiidrawable = (AnimationDrawable)Resources.GetDrawable(Resource.Drawable.loadingFreshii);
+            imageView.SetImageDrawable(freshiidrawable);
+
+            
+            freshiidrawable.Start();
+  
             _iBeaconManager.Bind(this);
 
             //_monitorNotifier.EnterRegionComplete += EnteredRegion;
@@ -82,7 +90,11 @@ namespace Beacons
             base.OnPause();
             _paused = true;
             previousBeacon = currentBeacon;
-            
+            if (freshiidrawable.IsRunning)
+            {
+                freshiidrawable.Stop();
+            }
+
         }
 
         protected override void OnDestroy()
@@ -97,6 +109,10 @@ namespace Beacons
             //_iBeaconManager.StopMonitoringBeaconsInRegion(_monitoringRegion);
             _iBeaconManager.StopRangingBeaconsInRegion(_rangingRegion);
             _iBeaconManager.UnBind(this);
+            if (freshiidrawable.IsRunning)
+            {
+                freshiidrawable.Stop();
+            }
         }
 
         //void EnteredRegion(object sender, MonitorEventArgs e)
@@ -129,6 +145,10 @@ namespace Beacons
                     //Log.Error(TAG, "App JniIdentityHashCode {0} JniPeerMembers{1} ProximityUuid{2}", lista[i].JniIdentityHashCode, lista[i].JniPeerMembers, lista[i].ProximityUuid);
                     if ((ProximityType)lista[i].Proximity == ProximityType.Immediate)
                     {
+                        if (freshiidrawable.IsRunning)
+                        {
+                            freshiidrawable.Stop();
+                        }
                         notBeaconDetectedcount = 0;
                         currentBeacon = lista[i];
                         infoMessage = mUtilities.compareBeacon(currentBeacon.Major, currentBeacon.Minor);
@@ -187,11 +207,14 @@ namespace Beacons
 
         private void UpdateDisplay(string message, Color color, string info)
         {
+            //int picture = (int)typeof(Resource.Drawable).GetField("Bowls").GetValue(null);
+            //imageView.SetImageResource(picture);
             RunOnUiThread(() =>
             {
-                _text.Text = message;
-                _info.Text = info;
+                //_text.Text = message;
+                //_info.Text = info;
                 Log.Error(TAG, "App UpdateDisplay {0}", info);
+                //freshiidrawable.Stop();
                 switch (info)
                 {
                     case "Rosado":
@@ -205,6 +228,7 @@ namespace Beacons
                         var intent = new Intent(Intent.ActionView, uri);
                         StartActivity(intent);
                         break;
+                    
                     default:
                         break;
                 }
@@ -224,6 +248,10 @@ namespace Beacons
 
         private void ShowNotification(string color)
         {
+            if (freshiidrawable.IsRunning)
+            {
+                freshiidrawable.Stop();
+            }
             var resultIntent = new Intent(this, typeof(MainActivity));
             resultIntent.AddFlags(ActivityFlags.ReorderToFront);
             var pendingIntent = PendingIntent.GetActivity(this, 0, resultIntent, PendingIntentFlags.UpdateCurrent);

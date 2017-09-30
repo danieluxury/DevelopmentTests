@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+  <item android:drawable="@drawable/freshii00" android:duration="300" />
+  
+  <item android:drawable="@drawable/freshii03" android:duration="300" />
+
+  <item android:drawable="@drawable/freshii05" android:duration="300" />
+
+  <item android:drawable="@drawable/freshii07" android:duration="300" />
+
+</animation-list>
