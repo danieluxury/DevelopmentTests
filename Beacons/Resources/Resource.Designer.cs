@@ -45,28 +45,46 @@ namespace Beacons
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Ensalada = 2130837504;
+			public const int Bowls = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int Freshii_icon_original = 2130837505;
+			public const int Burritos = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int greenbackgroud = 2130837506;
+			public const int Ensalada = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int image0 = 2130837507;
+			public const int Freshii_icon_original = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int Salads1 = 2130837508;
+			public const int Frozen_yogurt = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int Salads2 = 2130837509;
+			public const int greenbackgroud = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int Teriyaki_twist = 2130837510;
+			public const int image0 = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int Xamarin_Icon = 2130837511;
+			public const int Jugos = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int Salads1 = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int Salads2 = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int Smoothies = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int Sopas = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int Teriyaki_twist = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int Xamarin_Icon = 2130837517;
 			
 			static Drawable()
 			{

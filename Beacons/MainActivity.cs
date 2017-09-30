@@ -201,7 +201,9 @@ namespace Beacons
                         SetContentView(Resource.Layout.Novedades);
                         break;
                     case "Morado":
-                        //SetContentView(Resource.Layout.Menu3ScrollView);
+                        var uri = Android.Net.Uri.Parse("https://www.freshii.com/ec/locations");
+                        var intent = new Intent(Intent.ActionView, uri);
+                        StartActivity(intent);
                         break;
                     default:
                         break;
@@ -248,11 +250,6 @@ namespace Beacons
                 StartActivityForResult(enableBtIntent, mUtilities.REQUEST_ENABLE_BT);
             }
         }
-
-
-
-
-
     }
 }
 
